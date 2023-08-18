@@ -10,28 +10,21 @@ import UIKit
 class ViewController: UIViewController {
     
     //MARK: Объявляю константы
-    
     //Приветствие. Создаем лейбл и алерт
     private let labelForGreeting = UILabel()
     private let alertForGreeting = UIAlertController(title: "Welcome", message: "Enter your name", preferredStyle: .alert)
-    
     //Игра на "Сложение". Создаем кнопку и поле ввода
     private let buttonAddition = UIButton()
     private let labelForSum = UILabel()
-    
     //Игра "Угадай число". Создаем кнопку и поле ввода
     private let buttonGuessTheNumber = UIButton()
     private let labelForGuessTheNumber = UILabel()
     
-    
     //MARK: - ViewDidLoad method
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         //Настройка цвета фона View (задний фон экрана)
         self.view.backgroundColor = .systemMint
-        
-        
         //MARK: - Настраиваем приветственное сообщение
         //Настройка текста при приветствии, который изначально будет
         labelForGreeting.text = ""
@@ -41,14 +34,10 @@ class ViewController: UIViewController {
         labelForGreeting.textAlignment = .center
         //цвет текста
         labelForGreeting.textColor = .black
-        
-        
         //добавляем окно с приветствием на сам View
         self.view.addSubview(labelForGreeting)
-        
         //отключаем автоматическое добавление системных ограничений (constraits)
         labelForGreeting.translatesAutoresizingMaskIntoConstraints = false
-        
         //установка constraits (ограничения)
         NSLayoutConstraint.activate([
             labelForGreeting.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
@@ -56,7 +45,6 @@ class ViewController: UIViewController {
             labelForGreeting.widthAnchor.constraint(equalToConstant: 300),
             labelForGreeting.heightAnchor.constraint(equalToConstant: 50)
         ])
-        
         //Добавляем текстовое поле к приветствию
         alertForGreeting.addTextField { textField in
             //пока не ввели свой такст
@@ -64,7 +52,6 @@ class ViewController: UIViewController {
             //метод, который делает так, чтобы данное окно появилось сразу, после открытия приложения
             textField.becomeFirstResponder()
         }
-        
         //Создание кнопки для приветствия и обработки нажатия
         let buttonForGreetingAlert = UIAlertAction(title: "OK", style: .default) { _ in
             if let userText = self.alertForGreeting.textFields?.first?.text {
@@ -75,15 +62,10 @@ class ViewController: UIViewController {
                 }
             }
         }
-        
         //Добавляем кнопку к приветствию
         self.alertForGreeting.addAction(buttonForGreetingAlert)
-        
-        
         //MARK: - Игра "Сложение"
-        
         //MARK: - Настройка кнопки
-        
         //Настраиваем текст кнопки
         //устанавливаем название кнопки
         buttonAddition.setTitle("Addition", for: .normal)
@@ -91,7 +73,6 @@ class ViewController: UIViewController {
         buttonAddition.titleLabel?.font = .systemFont(ofSize: 30)
         //устанавливаем цвет текста кнопки
         buttonAddition.setTitleColor( .black, for: .normal)
-        
         
         //Настройка фона кнопки
         //устанавливаем цвет фона
@@ -102,16 +83,12 @@ class ViewController: UIViewController {
         buttonAddition.layer.borderWidth = 6
         //закрашивание границ
         buttonAddition.layer.borderColor = CGColor(red: 0.5, green: 1, blue: 1, alpha: 1)
-        
         //Добавление действия и обработчика действия к кнопке
         buttonAddition.addTarget(self, action: #selector(addition), for: .touchUpInside)
-        
         //добавление кнопки к view
         self.view.addSubview(buttonAddition)
-        
         //отключение автоматических constrait
         buttonAddition.translatesAutoresizingMaskIntoConstraints = false
-        
         //установка constraits
         NSLayoutConstraint.activate([
             //позиционирование
@@ -123,7 +100,6 @@ class ViewController: UIViewController {
         ])
         
         //MARK: - Настройка метки
-        
         //Настройка текста метки
         //расположение текста
         labelForSum.textAlignment = .center
@@ -131,13 +107,10 @@ class ViewController: UIViewController {
         labelForSum.font = .systemFont(ofSize: 20)
         //цвет текста
         labelForSum.textColor = .black
-        
         //Добавление метки на View
         self.view.addSubview(labelForSum)
-        
         //отключение автоматических constrait
         labelForSum.translatesAutoresizingMaskIntoConstraints = false
-        
         //установка constraits
         NSLayoutConstraint.activate([
             //позиционирование
@@ -149,9 +122,7 @@ class ViewController: UIViewController {
         ])
         
         //MARK: - Игра "Угадай число"
-        
         //MARK: - Настройка кнопки
-        
         //настройка текста кнопки
         //название кнопки
         buttonGuessTheNumber.setTitle("Game \"Guess the number\"", for: .normal)
@@ -159,7 +130,6 @@ class ViewController: UIViewController {
         buttonGuessTheNumber.titleLabel?.font = .systemFont(ofSize: 30)
         //цвет текста
         buttonGuessTheNumber.setTitleColor(.black, for: .normal)
-        
         //настройки фона кнопки
         //цвет фона
         buttonGuessTheNumber.backgroundColor = UIColor(red: 0.8, green: 1, blue: 0.9, alpha: 1)
@@ -169,16 +139,12 @@ class ViewController: UIViewController {
         buttonGuessTheNumber.layer.borderColor = CGColor(red: 0.5, green: 1, blue: 1, alpha: 1)
         //закругление фона
         buttonGuessTheNumber.layer.cornerRadius = 15
-        
         //добавление действия и обработчика действия к кнопке
         buttonGuessTheNumber.addTarget(self, action: #selector(guessTheNumber), for: .touchUpInside)
-        
         //добавление кнопки к View
         self.view.addSubview(buttonGuessTheNumber)
-        
         //отлючение автоматических constrait
         buttonGuessTheNumber.translatesAutoresizingMaskIntoConstraints = false
-        
         //установка constraits
         NSLayoutConstraint.activate([
             //позиционирование
@@ -189,10 +155,7 @@ class ViewController: UIViewController {
             buttonGuessTheNumber.heightAnchor.constraint(equalToConstant: 70)
         ])
         
-        
-        
         //MARK: - Настройка метки
-        
         //настройка метки текста
         //расположение текста по центру
         labelForGuessTheNumber.textAlignment = .center
@@ -200,13 +163,10 @@ class ViewController: UIViewController {
         labelForGuessTheNumber.font = .systemFont(ofSize: 20)
         //цвет шрифта
         labelForGuessTheNumber.textColor = .black
-        
         //добавление метки к View
         self.view.addSubview(labelForGuessTheNumber)
-        
         //отключение автоматических constraits
         labelForGuessTheNumber.translatesAutoresizingMaskIntoConstraints = false
-        
         //установка constraits
         NSLayoutConstraint.activate([
             //позиционирование
@@ -216,14 +176,8 @@ class ViewController: UIViewController {
             labelForGuessTheNumber.widthAnchor.constraint(equalToConstant: 350),
             labelForGuessTheNumber.heightAnchor.constraint(equalToConstant: 30)
         ])
-        
-        
     }
-    
-    
-    
     //MARK: - ViewDidAppear method
-    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         //делаем так, чтобы появлилось приветствие сразу после загрузки экрана
@@ -264,9 +218,8 @@ class ViewController: UIViewController {
         alert.addAction(buttonForAlert)
         self.present(alert, animated: true)
     }
-
-    // метод для кнопки "buttonGuessTheNumber"
     
+    // метод для кнопки "buttonGuessTheNumber"
     @objc func guessTheNumber() {
         //имя контроллера
         let alert = UIAlertController(title: nil, message: "Guess the number from 1 to 10", preferredStyle: .alert)
@@ -299,5 +252,4 @@ class ViewController: UIViewController {
         alert.addAction(buttonForAlert)
         self.present(alert, animated: true)
     }
-    
 }
