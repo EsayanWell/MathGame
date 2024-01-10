@@ -8,5 +8,6 @@ The MathGame app creates a simple game in Swift that helps develop math skills. 
 В приложении MathGame создана простая игра на Swift, которая помогает развивать математические навыки. В приложении использованы различные элементы пользовательского интерфейса, такие как кнопки, текстовые поля и алерты, чтобы сделать приложение интерактивным и увлекательным.
 
 
-https://github.com/EsayanWell/MathGame/assets/98737871/19d06bcd-2639-4596-87fc-9e343fb43404
+![Uploading MathGame.gif…]()
+
 
